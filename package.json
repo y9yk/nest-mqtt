@@ -2,12 +2,12 @@
   "name": "nest-mqtt",
   "version": "0.2.0",
   "description": "A MQTT module for Nest.js",
-  "author": "microud",
+  "authors": ["microud", "y9yk"],
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
-    "url": "https://github.com/microud/nest-mqtt"
+    "url": "https://github.com/y9yk/nest-mqtt"
   },
   "keywords": [
     "nest-mqtt",
