@@ -11,7 +11,7 @@ import {
 } from './mqtt.constants'
 
 export function createOptionsProvider(
-  options: MqttModuleAsyncOptions
+  options: MqttModuleAsyncOptions,
 ): Provider {
   if (options.useFactory) {
     return {
@@ -32,7 +32,7 @@ export function createOptionsProvider(
 }
 
 export function createOptionProviders(
-  options: MqttModuleAsyncOptions
+  options: MqttModuleAsyncOptions,
 ): Provider[] {
   if (options.useExisting || options.useFactory) {
     return [createOptionsProvider(options)]
@@ -52,7 +52,7 @@ export function createOptionProviders(
 }
 
 export function createLoggerProvider(
-  options: MqttModuleOptions | MqttModuleAsyncOptions
+  options: MqttModuleOptions | MqttModuleAsyncOptions,
 ): Provider {
   if (!options.logger) {
     return {

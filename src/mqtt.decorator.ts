@@ -10,7 +10,7 @@ import {
 } from './mqtt.interface'
 
 export function Subscribe(
-  topic: string | string[] | MqttSubscribeOptions
+  topic: string | string[] | MqttSubscribeOptions,
 ): CustomDecorator
 export function Subscribe(topicOrOptions): CustomDecorator {
   if (typeof topicOrOptions === 'string' || Array.isArray(topicOrOptions)) {

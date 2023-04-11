@@ -14,7 +14,7 @@ export class MqttService {
 
   subscribe(
     topic: string | string[],
-    opts?: IClientSubscribeOptions
+    opts?: IClientSubscribeOptions,
   ): Promise<ISubscriptionGrant[]> {
     return new Promise((resolve, reject) => {
       this.client.subscribe(topic, opts || null, (err, granted) => {
@@ -42,7 +42,7 @@ export class MqttService {
   publish(
     topic: string,
     message: string | Buffer | object,
-    opts?: IClientPublishOptions
+    opts?: IClientPublishOptions,
   ): Promise<Packet> {
     return new Promise<Packet>((resolve, reject) => {
       if (typeof message === 'object') {

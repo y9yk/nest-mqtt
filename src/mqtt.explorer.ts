@@ -28,7 +28,7 @@ export class MqttExplorer implements OnModuleInit {
     private readonly metadataScanner: MetadataScanner,
     @Inject(MQTT_LOGGER_PROVIDER) private readonly logger: Logger,
     @Inject(MQTT_CLIENT_INSTANCE) private readonly client: Client,
-    @Inject(MQTT_OPTION_PROVIDER) private readonly options: MqttModuleOptions
+    @Inject(MQTT_OPTION_PROVIDER) private readonly options: MqttModuleOptions,
   ) {
     this.subscribers = []
   }
@@ -69,7 +69,7 @@ export class MqttExplorer implements OnModuleInit {
     options: MqttSubscribeOptions,
     parameters: MqttSubscriberParameter[],
     handle,
-    provider
+    provider,
   ) {
     this.client.subscribe(this.preprocess(options), (err) => {
       if (!err) {
@@ -109,21 +109,21 @@ export class MqttExplorer implements OnModuleInit {
         (key) => {
           const subscribeOptions: MqttSubscribeOptions = this.reflector.get(
             MQTT_SUBSCRIBE_OPTIONS,
-            instance[key]
+            instance[key],
           )
           const parameters = this.reflector.get(
             MQTT_SUBSCRIBER_PARAMS,
-            instance[key]
+            instance[key],
           )
           if (subscribeOptions) {
             this.subscribe(
               subscribeOptions,
               parameters,
               instance[key],
-              instance
+              instance,
             )
           }
-        }
+        },
       )
     })
     this.client.on(
@@ -158,13 +158,13 @@ export class MqttExplorer implements OnModuleInit {
                   default:
                     return null
                 }
-              })
+              }),
             )
           } catch (err) {
             this.logger.error(err)
           }
         }
-      }
+      },
     )
   }
 
@@ -189,7 +189,7 @@ export class MqttExplorer implements OnModuleInit {
           .replace(/\+/g, '([^/]+)')
           .replace(/\/#$/, '(/.*)?') +
         '$',
-      'y'
+      'y',
     )
   }
 

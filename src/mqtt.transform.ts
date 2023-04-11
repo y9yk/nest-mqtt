@@ -9,7 +9,7 @@ export const TextTransform: MqttMessageTransformer = (payload) => {
 }
 
 export function getTransform(
-  transform: 'json' | 'text' | MqttMessageTransformer
+  transform: 'json' | 'text' | MqttMessageTransformer,
 ) {
   if (typeof transform === 'function') {
     return transform
