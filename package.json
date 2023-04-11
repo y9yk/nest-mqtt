@@ -2,7 +2,10 @@
   "name": "nest-mqtt",
   "version": "0.2.0",
   "description": "A MQTT module for Nest.js",
-  "authors": ["microud", "y9yk"],
+  "authors": [
+    "microud",
+    "y9yk"
+  ],
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,11 +28,12 @@
     "build": "rimraf dist && tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json -c tslint.json",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "postinstall": "husky install"
   },
   "peerDependencies": {
     "@nestjs/common": "^6.10.11 || ^7.0.0 || ^8.0.0",
@@ -44,8 +48,9 @@
     "@types/mqtt": "^2.5.0",
     "@types/node": "11.13.4",
     "@types/supertest": "2.0.7",
+    "husky": "^8.0.3",
     "jest": "24.7.1",
-    "prettier": "1.17.0",
+    "prettier": "2.0.5",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^7.2.0",
